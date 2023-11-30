@@ -1,0 +1,1017 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Week 5: Discrete Random Variables &#8212; Applied Statistics and Econometrics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/ASE_couserwork_week5';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Week 6: Continuous Random Variables" href="ASE_couserwork_week6.html" />
+    <link rel="prev" title="Week 4: Probability" href="ASE_couserwork_week4.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/birkbeck_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/birkbeck_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ASE_couserwork_week1.html">Week1: Using numbers</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ASE_couserwork_week2.html">Week 2: Descriptive statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ASE_couserwork_week3.html">Week 3: Index Numbers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ASE_couserwork_week4.html">Week 4: Probability</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 5: Discrete Random Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ASE_couserwork_week6.html">Week 6: Continuous Random Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ASE_couserwork_week7.html">Week 7: Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ASE_couserwork_week8.html">Week 8: Confidence intervals and hypothesis testing</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/ASE_couserwork_week5.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Week 5: Discrete Random Variables</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-random-variables">Discrete Random Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reminder">Reminder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-variables-formalism">Random variables: Formalism</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-mass-function-pmf-of-a-discrete-r-v-x">Probability mass function (PMF) of a discrete r.v. <span class="math notranslate nohighlight">\(X\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pmf-calculation">PMF calculation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial-experiment-from-last-week">Binomial experiment from last week;</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-from-textbook">Experiment from textbook;</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">PMF calculation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Binomial experiment from last week;</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Experiment from textbook;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="week-5-discrete-random-variables">
+<h1>Week 5: Discrete Random Variables<a class="headerlink" href="#week-5-discrete-random-variables" title="Permalink to this heading">#</a></h1>
+<section id="discrete-random-variables">
+<h2>Discrete Random Variables<a class="headerlink" href="#discrete-random-variables" title="Permalink to this heading">#</a></h2>
+<p>This week you’ll learn what are random variables and the properties of discrete random variables.</p>
+<section id="reminder">
+<h3>Reminder<a class="headerlink" href="#reminder" title="Permalink to this heading">#</a></h3>
+<p>Notations:</p>
+<ul>
+<li><p>Factorial:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n! = n \times (n-1) \times (n-2) \times \cdots \times 3 \times 2 \times 1\)</span></p></li>
+<li><p>0! = 1</p></li>
+</ul>
+</li>
+<li><p>Combination: The number of ways to choose <span class="math notranslate nohighlight">\(r\)</span> elements from a set of <span class="math notranslate nohighlight">\(n\)</span> elements.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(^nC_k = \binom{n}{r} =  \frac{n!}{k!(n-k)!}\)</span></p></li>
+</ul>
+</li>
+<li><p>Discrete random variables: take values in finite or countable set</p></li>
+<li><p>Random variable examples</p>
+<ul>
+<li><p>Bernouli:</p>
+<p>A single success/failure experiment</p>
+</li>
+<li><p>Binomial:</p>
+<p>The number of successes in a sequence of n independent experiments, each asking a yes–no question</p>
+</li>
+<li><p>Uniform:</p>
+<p>Probability distributions with equally likely outcomes</p>
+</li>
+<li><p>Geometric:</p>
+<p>The number of successive failures before a success is obtained in a Bernoulli trial</p>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="random-variables-formalism">
+<h3>Random variables: Formalism<a class="headerlink" href="#random-variables-formalism" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>A random variable (‘r.v.’) associates a value (a number) to every possible outcome</p></li>
+<li><p>Mathematically: A function from the sample space <span class="math notranslate nohighlight">\(\Omega\)</span> to the real numbers</p></li>
+<li><p>It can take discrete or continous values</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Notation:</p>
+<ul class="simple">
+<li><p>random variable: <span class="math notranslate nohighlight">\(X\)</span></p></li>
+<li><p>numerical value: <span class="math notranslate nohighlight">\(x\)</span></p></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p>We can have several random variables defined on the same sample space</p></li>
+<li><p>A function of one or several random variables is also a random variable</p>
+<ul>
+<li><p>if X and Y are r.v., then (X+Y) is also a r.v.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="probability-mass-function-pmf-of-a-discrete-r-v-x">
+<h3>Probability mass function (PMF) of a discrete r.v. <span class="math notranslate nohighlight">\(X\)</span><a class="headerlink" href="#probability-mass-function-pmf-of-a-discrete-r-v-x" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>it is the “probability law” or “probability distribution” of <span class="math notranslate nohighlight">\(X\)</span></p></li>
+<li><p>if we fix some <span class="math notranslate nohighlight">\(x\)</span> then “<span class="math notranslate nohighlight">\(X = x\)</span>” is an event</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Notation:</p>
+<p><span class="math notranslate nohighlight">\(P_X(x) = P(X=x) = P(\{\omega \in \Omega \quad s.t. \quad X(\omega)=x\})\)</span></p>
+</div>
+<p><strong>Q12.</strong></p>
+<p><strong>In 1968, an accountant named Charles Reep published an article in the journal of the Royal Statistical Society. After analysing more than 2200 football matches he concluded that 80 percent of goals were scored from plays of fewer than four passes. He claimed that three passes -a long ball, knockdown and strike - was the path for success. Taken from the book “Game changers” by Joao Medeiros.</strong></p>
+<p><strong>Suppose that in a typical football match there are on average 900 plays. Out of those, only 100 have 4 or more passes. there are 5 goals per match</strong></p>
+<aside class="topic">
+<p class="topic-title">(a) Complete the blank cells in the following table given the information above. Number of plays in a typical football match, G=ending in goal, NG=not ending in goal.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}[]
+\begin{array}{|l|l|l|l|}
+\hline
+                       &amp; G &amp; NG  &amp; Total \\ \hline
+&lt; 4            &amp; 4 &amp; 796 &amp; 800   \\ \hline
+\geq  4 &amp; 1 &amp; 99  &amp; 100   \\ \hline
+Total                  &amp; 5 &amp; 895 &amp; 900   \\ \hline
+\end{array}
+\end{aligned}\end{split}\]</div>
+</aside>
+<aside class="topic">
+<p class="topic-title">b) What is the probabilty of scoring a goal, conditional on a play with less than 4 passes: P(G| &lt; 4)?</p>
+<div class="math notranslate nohighlight">
+\[
+    P(G|&lt;4) = \frac{P(G \cap &lt; 4)}{P(&lt;4)} = \frac{4}{800} = 0.005
+\]</div>
+</aside>
+<aside class="topic">
+<p class="topic-title">c) What is the probabilty of scoring a goal, conditional on a play with less than 4 passes: P(G| &gt;= 4)?</p>
+<div class="math notranslate nohighlight">
+\[
+    P(G|\geq 4) = \frac{P(G \cap \geq 4)}{P(\geq 4)} = \frac{1}{100} = 0.01
+\]</div>
+</aside>
+<aside class="topic">
+<p class="topic-title">d) From the definition of conditional probability shown in algebra and with the numbers above that</p>
+<div class="math notranslate nohighlight">
+\[
+    {P(A \cap B)}= P(B|A)P(A) = P(A|B)P(B)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+    P(G|&lt;4) = \frac{P(&lt;4 | G)P(G)}{P(&lt;4)} = \frac{\frac{4}{5} \times \frac{5}{900}}{\frac{800}{900}} = \frac{4}{800}
+\]</div>
+</aside>
+<aside class="topic">
+<p class="topic-title">e) Reep’s conclusion, that three passes was the path for success, was mistaken. Explain the mistake in his analysis.</p>
+<p>Reep was wrong in not applying Bayes’ rule to get conditional probabilities</p>
+</aside>
+</section>
+<section id="pmf-calculation">
+<h3>PMF calculation<a class="headerlink" href="#pmf-calculation" title="Permalink to this heading">#</a></h3>
+<section id="binomial-experiment-from-last-week">
+<h4>Binomial experiment from last week;<a class="headerlink" href="#binomial-experiment-from-last-week" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Experiment: n independent tosses of a coin with <span class="math notranslate nohighlight">\(P(Heads)=p\)</span></p></li>
+<li><p>Sample space: Set of sequences of H and T, of length n</p></li>
+<li><p>Random variable <span class="math notranslate nohighlight">\(X\)</span>: number of heads observed</p></li>
+<li><p>Model of: number of successes in a given number of independent trials</p></li>
+</ul>
+<p><img alt="treepmf" src="../_images/coin_pmf.png" /></p>
+<p><span class="math notranslate nohighlight">\(p_X(k) = ^nC_k \times p^k(1-p)^{(n-k)}, \quad for \quad k=0,1, \cdot ,n\)</span></p>
+<p><span class="math notranslate nohighlight">\(\Omega = \{0,1,2,3\}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+p_X(0)&amp; =p(X=0) \\
+  &amp; = P(TTT) \\
+  &amp; =(1-p)^3 = C^0_3 *(1-p)^3= 1\times \frac{1}{8} \\
+\end{align}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+p_X(1)&amp; =p(X=1) \\
+  &amp; =P(HTT) + P(THT) + P(TTH) \\
+  &amp; =3p(1-p)^2 = C^1_3 *p*(1-p)^2= 3\times \frac{1}{8} \\
+\end{align}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+p_X(2)&amp; =p(X=2) \\
+  &amp; =P(HHT) + P(HTH) + P(THH) \\
+  &amp; =3p(1-p)^2 = C^1_3 *p*(1-p)^2= 3\times \frac{1}{8} \\
+\end{align}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+p_X(3)&amp; =p(X=3) \\
+  &amp; = P(HHH) \\
+  &amp; =(p)^3 = C^3_3 *(p)^3= 1\times \frac{1}{8} \\
+\end{align}\end{split}\]</div>
+<p><img alt="mpv" src="../_images/pmf_cdf.png" /></p>
+</section>
+<section id="experiment-from-textbook">
+<h4>Experiment from textbook;<a class="headerlink" href="#experiment-from-textbook" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Two rolls of a hexahedral die</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(z = X+Y \quad find \quad P_Z(z)\)</span></p></li>
+</ul>
+</li>
+<li><p>Let every possible outcome have probability <span class="math notranslate nohighlight">\(\frac{1}{36}\)</span></p>
+<ul>
+<li><p>Repeat for all <span class="math notranslate nohighlight">\(z\)</span>:</p>
+<ul>
+<li><p>Collect all possible outcomes for which <span class="math notranslate nohighlight">\(Z\)</span> is equal to <span class="math notranslate nohighlight">\(z\)</span></p></li>
+<li><p>add their probabilities</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}[]
+\begin{array}{|l|l|l|l|l|l|l|}
+\hline
+6 &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   \\ \hline
+5 &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   \\ \hline
+4 &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   \\ \hline
+3 &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   \\ \hline
+2 &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   \\ \hline
+1 &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   \\ \hline
+  &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 \\ \hline
+\end{array}
+\end{aligned}\end{split}\]</div>
+<p>Fill this table and construct the PMF</p>
+<p><strong>Q13.</strong></p>
+<p><strong>If a RV follows a binomial distribution with probability of success p on a particular trial, then the probability of getting k successes in n trials is given by</strong></p>
+<div class="math notranslate nohighlight">
+\[
+    f(k) = ^nC_k \times p^k(1-p)^{(n-k)}
+\]</div>
+<aside class="topic">
+<p class="topic-title">a) Suppose that you toss a fair coin 5 times. Give the probability of getting, 0,1,2,3,4,5 heads</p>
+<p>The coin is said to be fair so</p>
+<p><span class="math notranslate nohighlight">\(p = 1-p = 0.5\)</span></p>
+<p>and so:</p>
+<p><span class="math notranslate nohighlight">\(p^k(1-p)^{(n-k)} = \frac{1}{2}^5 \quad\)</span>  <span class="math notranslate nohighlight">\(\forall \quad k \in {0,1,2,3,4,5}\)</span></p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(k\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(\frac{n!}{k!(n-k)!}\)</span></p></th>
+<th class="head"><p>=</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(f(k)\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{5!}{5!}\)</span></p></td>
+<td><p>1</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{1}{32}=0.03125\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{5 \times 4 \times 3 \times 2 \times 1}{1 \times 4 \times 3 \times 2 \times 1}\)</span></p></td>
+<td><p>5</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{5}{32}=0.15625\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{5 \times 4 \times 3 \times 2 \times 1}{2 \times 1 \times 3 \times 2 \times 1}\)</span></p></td>
+<td><p>10</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{10}{32}=0.3125\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{5 \times 4 \times 3 \times 2 \times 1}{3 \times 2 \times 1 \times 2 \times 1}\)</span></p></td>
+<td><p>10</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{10}{32}=0.3125\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{5 \times 4 \times 3 \times 2 \times 1}{4 \times 3 \times 2 \times 1 \times 1}\)</span></p></td>
+<td><p>5</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{5}{32}=0.15625\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{5!}{5!}\)</span></p></td>
+<td><p>1</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{1}{32}=0.03125\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</aside>
+<aside class="topic">
+<p class="topic-title">(b) Calculate the expected value and variance for the number of heads. Show that these are <span class="math notranslate nohighlight">\(np\)</span> and <span class="math notranslate nohighlight">\(np(1-p)\)</span></p>
+<ul class="simple">
+<li><p>Expectation: The expected value of a random variable X is defined as</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+    E(X) = \sum_{i=1}^n p(x_i)x_i
+\]</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- it is a weighted average
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Variance: The variance is defined as:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+    Var = \sum_{i=1}^n p(x_i)[x_i - E(X)]^2
+\]</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- it is also a weighted average
+</pre></div>
+</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(x_i\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(p(x_i)\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(m=p(x_i) \times x_i\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(p(x_i) \times (x_i-m)^2\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0.03125</p></td>
+<td><p>0.00</p></td>
+<td><p>0.20</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>0.15625</p></td>
+<td><p>0.16</p></td>
+<td><p>0.35</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>0.31250</p></td>
+<td><p>0.63</p></td>
+<td><p>0.08</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>0.31250</p></td>
+<td><p>0.94</p></td>
+<td><p>0.08</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>0.15625</p></td>
+<td><p>0.63</p></td>
+<td><p>0.35</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>0.03125</p></td>
+<td><p>0.16</p></td>
+<td><p>0.20</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>Sum up:</p></td>
+<td><p>2.50=5*<span class="math notranslate nohighlight">\(\frac{1}{2}\)</span> = np</p></td>
+<td><p>1.25=5*<span class="math notranslate nohighlight">\(\frac{1}{2}^2\)</span> = np(1-p)</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p>Mean</p></td>
+<td><p>Variance</p></td>
+</tr>
+</tbody>
+</table>
+</aside>
+</section>
+</section>
+<section id="id1">
+<h3>PMF calculation<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<section id="id2">
+<h4>Binomial experiment from last week;<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Experiment: n independent tosses of a coin with <span class="math notranslate nohighlight">\(P(Heads)=p\)</span></p></li>
+<li><p>Sample space: Set of sequences of H and T, of length n</p></li>
+<li><p>Random variable <span class="math notranslate nohighlight">\(X\)</span>: number of heads observed</p></li>
+<li><p>Model of: number of successes in a given number of independent trials</p></li>
+</ul>
+<p><img alt="treepmf" src="../_images/coin_pmf.png" /></p>
+<p><span class="math notranslate nohighlight">\(p_X(k) = ^nC_k \times p^k(1-p)^{(n-k)}, \quad for \quad k=0,1, \cdot ,n\)</span></p>
+<p><span class="math notranslate nohighlight">\(\Omega = \{0,1,2,3\}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+p_X(0)&amp; =p(X=0) \\
+  &amp; = P(TTT) \\
+  &amp; =(1-p)^3 = C^0_3 *(1-p)^3= 1\times \frac{1}{8} \\
+\end{align}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+p_X(1)&amp; =p(X=1) \\
+  &amp; =P(HTT) + P(THT) + P(TTH) \\
+  &amp; =3p(1-p)^2 = C^1_3 *p*(1-p)^2= 3\times \frac{1}{8} \\
+\end{align}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+p_X(2)&amp; =p(X=2) \\
+  &amp; =P(HHT) + P(HTH) + P(THH) \\
+  &amp; =3p(1-p)^2 = C^1_3 *p*(1-p)^2= 3\times \frac{1}{8} \\
+\end{align}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+p_X(3)&amp; =p(X=3) \\
+  &amp; = P(HHH) \\
+  &amp; =(p)^3 = C^3_3 *(p)^3= 1\times \frac{1}{8} \\
+\end{align}\end{split}\]</div>
+<p><img alt="mpv" src="../_images/pmf_cdf.png" /></p>
+</section>
+<section id="id3">
+<h4>Experiment from textbook;<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Two rolls of a hexahedral die</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(z = X+Y \quad find \quad P_Z(z)\)</span></p></li>
+</ul>
+</li>
+<li><p>Let every possible outcome have probability <span class="math notranslate nohighlight">\(\frac{1}{36}\)</span></p>
+<ul>
+<li><p>Repeat for all <span class="math notranslate nohighlight">\(z\)</span>:</p>
+<ul>
+<li><p>Collect all possible outcomes for which <span class="math notranslate nohighlight">\(Z\)</span> is equal to <span class="math notranslate nohighlight">\(z\)</span></p></li>
+<li><p>add their probabilities</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}[]
+\begin{array}{|l|l|l|l|l|l|l|}
+\hline
+6 &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   \\ \hline
+5 &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   \\ \hline
+4 &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   \\ \hline
+3 &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   \\ \hline
+2 &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   \\ \hline
+1 &amp;   &amp;   &amp;   &amp;   &amp;   &amp;   \\ \hline
+  &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 \\ \hline
+\end{array}
+\end{aligned}\end{split}\]</div>
+<p>Fill this table and construct the PMF</p>
+<p><strong>Q14.</strong></p>
+<p><strong>In Excel type: =RAND() into cell Al. This will give you will get a uniformly distributed random number over zero-one. Copy this to Bl:O1; In cell Pl type =AVERAGE(Al:O1). In Cell Ql type =STDEV.S(Al:O1). In Cell Rl type =STDEV.P(Al:O1). Copy the line Al:Rl to lines 2:50. You now have 50 samples of 15 random numbers plus estimates of the mean and sample and population standard deviations. In cell P51, type =AVERAGE(Pl:P50). In cell Q51 type =AVERAGE(Ql:Q50) In cell R51 type =AVERAGE(Rl:R50) . In cell P52 type =STDEV.S(Pl:P50).</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+
+<span class="c1"># Define the dimensions of the matrix</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="c1"># Generate the random matrix</span>
+<span class="n">random_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">columns</span><span class="p">)</span>
+
+<span class="c1"># Print the random matrix</span>
+<span class="c1"># print(random_matrix)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the mean</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">random_matrix</span><span class="p">)</span>
+
+<span class="c1"># Calculate the sample variance</span>
+<span class="n">sample_variance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">random_matrix</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Calculate the population variance</span>
+<span class="n">population_variance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">random_matrix</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mean:&quot;</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sample standard deviation:&quot;</span><span class="p">,</span> <span class="n">sample_variance</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Population standard deviation:&quot;</span><span class="p">,</span> <span class="n">population_variance</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean: 0.525260780112386
+Sample standard deviation: 0.2892796834015521
+Population standard deviation: 0.2890867659520183
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Flatten the matrix to a 1D array</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">random_matrix</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+<span class="c1"># Create a histogram</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Histogram&#39;</span><span class="p">)</span>
+
+<span class="c1"># Fit a normal distribution to the data</span>
+<span class="n">mu</span><span class="p">,</span> <span class="n">std</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># Plot the PDF of the fitted normal distribution</span>
+<span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">std</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Fitted Normal Distribution&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Histogram and Fitted Normal Distribution&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Value&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f7a60084ffc7bcdfa4e6254d5392c630fc5a4b3dd9a9727f9828067f552e1a2b.png" src="../_images/f7a60084ffc7bcdfa4e6254d5392c630fc5a4b3dd9a9727f9828067f552e1a2b.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the means for each rows</span>
+<span class="n">row_means</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">random_matrix</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Create a histogram of the row means</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">row_means</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Row Means&#39;</span><span class="p">)</span>
+
+<span class="c1"># Fit a normal distribution to the row means</span>
+<span class="n">mu</span><span class="p">,</span> <span class="n">std</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">row_means</span><span class="p">)</span>
+
+<span class="c1"># Plot the PDF of the fitted normal distribution</span>
+<span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">row_means</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">row_means</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">std</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Fitted Normal Distribution&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Histogram of Row Means and Fitted Normal Distribution&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Mean of Rows&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/12f7a4a17e7dcc491933ad1c925b29ce62999a9df8564518cac6bcb1df6b2ad2.png" src="../_images/12f7a4a17e7dcc491933ad1c925b29ce62999a9df8564518cac6bcb1df6b2ad2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+
+<span class="c1"># Generate random data from a normal distribution</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">std_dev</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std_dev</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
+
+<span class="c1"># Flatten the data to a 1D array</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+<span class="c1"># Create a histogram</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Histogram&#39;</span><span class="p">)</span>
+
+<span class="c1"># Fit a normal distribution to the data</span>
+<span class="n">mu</span><span class="p">,</span> <span class="n">std</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># Plot the PDF of the fitted normal distribution</span>
+<span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">std</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Fitted Normal Distribution&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Histogram and Fitted Normal Distribution&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Value&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f7f0fd12403035e0697d2c4928d65b458343e883551c66546af79ffb55612140.png" src="../_images/f7f0fd12403035e0697d2c4928d65b458343e883551c66546af79ffb55612140.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ASE_couserwork_week4.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Week 4: Probability</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ASE_couserwork_week6.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 6: Continuous Random Variables</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-random-variables">Discrete Random Variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reminder">Reminder</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-variables-formalism">Random variables: Formalism</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probability-mass-function-pmf-of-a-discrete-r-v-x">Probability mass function (PMF) of a discrete r.v. <span class="math notranslate nohighlight">\(X\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pmf-calculation">PMF calculation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#binomial-experiment-from-last-week">Binomial experiment from last week;</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#experiment-from-textbook">Experiment from textbook;</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">PMF calculation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Binomial experiment from last week;</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Experiment from textbook;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Roland Amagbo
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1567 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Week 2: Descriptive statistics &#8212; Applied Statistics and Econometrics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/ASE_couserwork_week2';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Week 3: Index Numbers" href="ASE_couserwork_week3.html" />
+    <link rel="prev" title="Week1: Using numbers" href="ASE_couserwork_week1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/birkbeck_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/birkbeck_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ASE_couserwork_week1.html">Week1: Using numbers</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 2: Descriptive statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ASE_couserwork_week3.html">Week 3: Index Numbers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ASE_couserwork_week4.html">Week 4: Probability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ASE_couserwork_week5.html">Week 5: Discrete Random Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ASE_couserwork_week6.html">Week 6: Continuous Random Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ASE_couserwork_week7.html">Week 7: Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ASE_couserwork_week8.html">Week 8: Confidence intervals and hypothesis testing</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/ASE_couserwork_week2.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Week 2: Descriptive statistics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-descriptive-statistics">Introduction to descriptive statistics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-central-tendency">Measures of central tendency:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-variability-or-dispersion">Measures of variability or dispersion:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-dispersion-or-variability">Measures of dispersion or variability</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variance">Variance</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation">Standard deviation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#skewness">Skewness</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rule-of-thumb-for-skewness-values-are">The rule of thumb for skewness values are:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#kurtosis">Kurtosis</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#mesokurtic-curve">Mesokurtic curve:</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#platykurtic-curve">Platykurtic curve:</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#leptokurtic-curve">Leptokurtic curve:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-python-libraries">Import python libraries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Variance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fred">FRED</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#world-bank">World Bank</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oecd">OECD</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="week-2-descriptive-statistics">
+<h1>Week 2: Descriptive statistics<a class="headerlink" href="#week-2-descriptive-statistics" title="Permalink to this heading">#</a></h1>
+<section id="introduction-to-descriptive-statistics">
+<h2>Introduction to descriptive statistics<a class="headerlink" href="#introduction-to-descriptive-statistics" title="Permalink to this heading">#</a></h2>
+<p>Descriptive statistics are numbers that are used to describe and summarize the data.</p>
+<section id="measures-of-central-tendency">
+<h3>Measures of central tendency:<a class="headerlink" href="#measures-of-central-tendency" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>mean</p></li>
+<li><p>median</p></li>
+<li><p>mode</p></li>
+</ul>
+</section>
+<section id="measures-of-variability-or-dispersion">
+<h3>Measures of variability or dispersion:<a class="headerlink" href="#measures-of-variability-or-dispersion" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>variance or standard deviation</p></li>
+<li><p>coefficient of variation</p></li>
+<li><p>minimum and maximum values</p></li>
+<li><p>IQR (Interquartile Range)</p></li>
+<li><p>skewness</p></li>
+<li><p>kurtosis</p></li>
+</ul>
+</section>
+<section id="measures-of-dispersion-or-variability">
+<h3>Measures of dispersion or variability<a class="headerlink" href="#measures-of-dispersion-or-variability" title="Permalink to this heading">#</a></h3>
+<section id="variance">
+<h4>Variance<a class="headerlink" href="#variance" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Variance measures the dispersion of a set of data points around their mean value.</p></li>
+<li><p>Variance gives results in the original units squared.</p></li>
+</ul>
+</section>
+<section id="standard-deviation">
+<h4>Standard deviation<a class="headerlink" href="#standard-deviation" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Standard deviation is the most common used measure of variability.</p></li>
+<li><p>It is the square-root of the variance.</p></li>
+</ul>
+</section>
+<section id="skewness">
+<h4>Skewness<a class="headerlink" href="#skewness" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Skewness is a measure of a distribution’s symmetry or more precisely lack of symmetry.</p></li>
+<li><p>It is used to mean the absence of symmetry from the mean of the dataset.</p></li>
+</ul>
+</section>
+<section id="the-rule-of-thumb-for-skewness-values-are">
+<h4>The rule of thumb for skewness values are:<a class="headerlink" href="#the-rule-of-thumb-for-skewness-values-are" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>If the skewness is between -0.5 and 0.5, the data are fairly symmetrical.</p></li>
+<li><p>If the skewness is between -1 and – 0.5 or between 0.5 and 1, the data are moderately skewed.</p></li>
+<li><p>If the skewness is less than -1 or greater than 1, the data are highly skewed.</p></li>
+</ul>
+<p><img alt="skew" src="../_images/skew.png" /></p>
+</section>
+<section id="kurtosis">
+<h4>Kurtosis<a class="headerlink" href="#kurtosis" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Kurtosis is the degree of peakedness of a distribution.</p></li>
+</ul>
+<section id="mesokurtic-curve">
+<h5>Mesokurtic curve:<a class="headerlink" href="#mesokurtic-curve" title="Permalink to this heading">#</a></h5>
+<ul class="simple">
+<li><p>kurtosis exactly 3 (excess kurtosis exactly 0).</p></li>
+</ul>
+</section>
+<section id="platykurtic-curve">
+<h5>Platykurtic curve:<a class="headerlink" href="#platykurtic-curve" title="Permalink to this heading">#</a></h5>
+<ul class="simple">
+<li><p>A distribution with kurtosis &lt; 3 (excess kurtosis &lt; 0) is called platykurtic.</p></li>
+<li><p>As compared to a normal distribution, its central peak is lower and broader, and its tails are shorter and thinner.</p></li>
+</ul>
+</section>
+<section id="leptokurtic-curve">
+<h5>Leptokurtic curve:<a class="headerlink" href="#leptokurtic-curve" title="Permalink to this heading">#</a></h5>
+<ul class="simple">
+<li><p>A distribution with kurtosis &gt; 3 (excess kurtosis &gt; 0) is called leptokurtic.</p></li>
+<li><p>As compared to a normal distribution, its central peak is higher and sharper, and its tails are longer and fatter.</p></li>
+</ul>
+<p><img alt="kurt" src="../_images/kurt.png" /></p>
+</section>
+</section>
+</section>
+</section>
+<section id="import-python-libraries">
+<h2>Import python libraries<a class="headerlink" href="#import-python-libraries" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sample data </span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Given a sample of observations  <span class="math notranslate nohighlight">\(y_t, t = 1, \cdots, T\)</span>, the mean <span class="math notranslate nohighlight">\(\mu\)</span> is calculated such that:</p>
+<p><span class="math notranslate nohighlight">\(\mu = \frac{\sum_{i=1}^T {y_t}}{T}\)</span>.</p>
+<ol class="arabic">
+<li><p><strong>Mean (Average):</strong></p>
+<p>Mean (μ) is calculated as the sum of all data points divided by the number of data points.</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Manual Calculation</span>
+
+<span class="n">Mean</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span> <span class="o">+</span> <span class="mi">15</span> <span class="o">+</span> <span class="mi">16</span> <span class="o">+</span> <span class="mi">18</span> <span class="o">+</span> <span class="mi">20</span> <span class="o">+</span> <span class="mi">21</span> <span class="o">+</span> <span class="mi">22</span> <span class="o">+</span> <span class="mi">23</span> <span class="o">+</span> <span class="mi">24</span> <span class="o">+</span> <span class="mi">25</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span> 
+<span class="n">Mean</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.6
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculation using Python</span>
+
+<span class="n">Mean_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">Mean_p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.6
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id1">
+<h3>Variance<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>Variance  measures how data points vary from the mean.</p>
+<p>The variance is calculated such that:</p>
+<p><span class="math notranslate nohighlight">\(V(x) = \frac{\sum_{i=1}^T {(y_t - \mu)^2}}{T-1}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Manual Calculation</span>
+
+<span class="n">Variance</span> <span class="o">=</span> <span class="p">((</span><span class="mi">12</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">15</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">16</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">18</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">20</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">21</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">22</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">23</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">24</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">25</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">10</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">Variance</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18.044444444444444
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python implementation of Variance</span>
+
+<span class="n">variance_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># ddof=1 for sample variance</span>
+<span class="n">variance_p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18.044444444444444
+</pre></div>
+</div>
+</div>
+</div>
+<p>The standard deviation is calculated such that:</p>
+<p><span class="math notranslate nohighlight">\(σ(x)= \sqrt{var}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Manual Calculation</span>
+
+<span class="n">std_dev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Variance</span><span class="p">)</span>
+<span class="n">std_dev</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.247875285886398
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Standard Deviation</span>
+<span class="n">std_dev_p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># ddof=1 for sample standard deviation</span>
+<span class="n">std_dev_p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.247875285886398
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we let</p>
+<div class="math notranslate nohighlight">
+\[
+z_t = \frac{\sum_{t=1}^T {(y_t - \mu)}}{s}
+\]</div>
+<p>We can calculate the coefficient of skeweness as</p>
+<div class="math notranslate nohighlight">
+\[
+skew = \frac{\sum_{t=1}^T {(z_t)^3}}{T}
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Manual Calculation</span>
+
+<span class="n">Skewness</span> <span class="o">=</span> <span class="p">(</span><span class="nb">pow</span><span class="p">((</span><span class="mi">12</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">),</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="nb">pow</span><span class="p">((</span><span class="mi">15</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">),</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="nb">pow</span><span class="p">((</span><span class="mi">16</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">),</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="nb">pow</span><span class="p">((</span><span class="mi">18</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">),</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="nb">pow</span><span class="p">((</span><span class="mi">20</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">),</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="nb">pow</span><span class="p">((</span><span class="mi">21</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">),</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="nb">pow</span><span class="p">((</span><span class="mi">22</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">),</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="nb">pow</span><span class="p">((</span><span class="mi">23</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">),</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="nb">pow</span><span class="p">(</span><span class="mi">24</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="nb">pow</span><span class="p">((</span><span class="mi">25</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">),</span><span class="mi">3</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">10</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">std_dev</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">Skewness</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.37635737968447946
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Skewness python implementation</span>
+
+<span class="n">skew</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">skew</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">skew</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.44079501259842147
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can calculate the coefficient of kurtosis as:</p>
+<div class="math notranslate nohighlight">
+\[
+kurt = \frac{\sum_{t=1}^T {(z_t)^4}}{T}
+\]</div>
+<p>using the biaised estimator of the standard deviation <span class="math notranslate nohighlight">\(\sigma\)</span> we can write the expression above as:</p>
+<div class="math notranslate nohighlight">
+\[
+kurt = T^{-1} \frac{\sum_{t=1}^T {(y_t - \mu)^4}}{(\sigma^2)^2}
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Manual Calculation</span>
+
+<span class="n">Kurtosis</span> <span class="o">=</span> <span class="p">(</span><span class="nb">pow</span><span class="p">((</span><span class="mi">12</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">),</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="nb">pow</span><span class="p">((</span><span class="mi">15</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">),</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="nb">pow</span><span class="p">((</span><span class="mi">16</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">),</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="nb">pow</span><span class="p">((</span><span class="mi">18</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">),</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="nb">pow</span><span class="p">((</span><span class="mi">20</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">),</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="nb">pow</span><span class="p">((</span><span class="mi">21</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">),</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="nb">pow</span><span class="p">((</span><span class="mi">22</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">),</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="nb">pow</span><span class="p">((</span><span class="mi">23</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">),</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="nb">pow</span><span class="p">((</span><span class="mi">24</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">),</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="nb">pow</span><span class="p">((</span><span class="mi">25</span> <span class="o">-</span> <span class="mf">19.6</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">10</span> <span class="o">*</span> <span class="nb">pow</span><span class="p">(</span><span class="n">std_dev</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">Kurtosis</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.6444224562595553
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Kurtosis using python</span>
+
+<span class="n">kurtosis</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">kurtosis</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">kurtosis</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.9698488194326482
+</pre></div>
+</div>
+</div>
+</div>
+<p>and the covariance <span class="math notranslate nohighlight">\(Cov(x,y)\)</span> between <span class="math notranslate nohighlight">\(x_i\)</span> and <span class="math notranslate nohighlight">\(y_i\)</span> as:</p>
+<div class="math notranslate nohighlight">
+\[
+Cov(x,y) = \frac{\sum_{t=1}^T {(y_t - \mu_y)(x_t - \mu_x)}}{T}
+\]</div>
+<p>and the correlation <span class="math notranslate nohighlight">\(\rho\)</span> between <span class="math notranslate nohighlight">\(X_i\)</span> and <span class="math notranslate nohighlight">\(Y_i\)</span> as:</p>
+<div class="math notranslate nohighlight">
+\[
+\rho(x,y) = \frac{Cov(x,y)}{S(x)S(y)}
+\]</div>
+<p>Q2.</p>
+<p>In a speech, <code class="docutils literal notranslate"><span class="pre">Why</span> <span class="pre">Banks</span> <span class="pre">failed</span> <span class="pre">the</span> <span class="pre">stress</span> <span class="pre">test</span></code>, February 2009, Andrew Haldane of the Bank of England provides the following summary statistics for the “golden era” 1998-2007 and for a long period. Growth is annual percent GDP growth, inflation is annual percent change in the RPI and for both the long period is 1857-2007. FTSE is the monthly percent change in the all share index and the long period is 1693-2007.</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head text-center"><p>Growth</p></th>
+<th class="head text-center"><p></p></th>
+<th class="head text-center"><p>Inflation</p></th>
+<th class="head text-center"><p></p></th>
+<th class="head text-center"><p>FTSE</p></th>
+<th class="head text-center"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p></p></td>
+<td class="text-center"><p>98-07</p></td>
+<td class="text-center"><p>long</p></td>
+<td class="text-center"><p>98-07</p></td>
+<td class="text-center"><p>long</p></td>
+<td class="text-center"><p>98-07</p></td>
+<td class="text-center"><p>long</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mean</p></td>
+<td class="text-center"><p>2.9</p></td>
+<td class="text-center"><p>2.0</p></td>
+<td class="text-center"><p>2.8</p></td>
+<td class="text-center"><p>3.1</p></td>
+<td class="text-center"><p>0.2</p></td>
+<td class="text-center"><p>0.2</p></td>
+</tr>
+<tr class="row-even"><td><p>SD</p></td>
+<td class="text-center"><p>0.6</p></td>
+<td class="text-center"><p>2.7</p></td>
+<td class="text-center"><p>0.9</p></td>
+<td class="text-center"><p>5.9</p></td>
+<td class="text-center"><p>4.1</p></td>
+<td class="text-center"><p>4.1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Skew</p></td>
+<td class="text-center"><p>0.2</p></td>
+<td class="text-center"><p>-0.8</p></td>
+<td class="text-center"><p>0.0</p></td>
+<td class="text-center"><p>1.2</p></td>
+<td class="text-center"><p>-0.8</p></td>
+<td class="text-center"><p>2.6</p></td>
+</tr>
+<tr class="row-even"><td><p>Excess Kurtosis</p></td>
+<td class="text-center"><p>-0.8</p></td>
+<td class="text-center"><p>2.2</p></td>
+<td class="text-center"><p>-0.3</p></td>
+<td class="text-center"><p>3.0</p></td>
+<td class="text-center"><p>3.8</p></td>
+<td class="text-center"><p>62.3</p></td>
+</tr>
+</tbody>
+</table>
+<p>(a) Explain how the mean; standard deviation, SD; coefficient of skewness and coefficient of kurtosis are calculated, and what they measure.</p>
+<p>(b) What values for the coefficients of skewness and kurtosis would you expect from a normal distribution. Which of the series shows the least evidence of normality.</p>
+<p>( c) Haldane says “these distributions suggest that the Golden Era” distri­butions have a much smaller variance and slimmer tails” and “many risk man­agement models developed within the private sector during the golden decade were, in effect, pre-programmed to induce disaster myopia.”. Explain what he means using these statistics.</p>
+<p>Q3.</p>
+<p>Consider the set of observations on a variable <span class="math notranslate nohighlight">\(X_i, i = 1, 2, ... , T\)</span> and</p>
+<p><span class="math notranslate nohighlight">\(w_i = a + b x_i\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\mu = \frac{\sum_{i=1}^T {x_i}}{T}\)</span>.</p>
+<p>Q4.</p>
+<p>Consider the set of observations on variables <span class="math notranslate nohighlight">\(x_i, y_i\)</span>,   <span class="math notranslate nohighlight">\(i = 1, 2, ... , T\)</span>.</p>
+<p>Let:</p>
+<div class="math notranslate nohighlight">
+\[
+z(y_i) = \frac{y_i - \mu_y}{S(y)}
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+z(x_i) = \frac{x_i - \mu_x}{S(x)}
+\]</div>
+<p>(i)</p>
+<p>Show that each of the following four expressions are true</p>
+<div class="math notranslate nohighlight">
+\[
+ \frac{\sum_{t=1}^N z(y_i)}{N} =0
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\frac{\sum_{t=1}^N [z(y_i)]^2}{N} =1
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\rho(x,y) = \frac{\sum_{t=1}^N z(y_i)z(x_i)}{N}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\rho(x,x) = 1
+\]</div>
+<p>(ii)</p>
+<p>Show that the variance equals the mean of the squares minus the square of the mean:</p>
+<div class="math notranslate nohighlight">
+\[
+ \frac{\sum_{i=1}^N (y_i - \mu_y)^2}{N} = \frac{\sum_{i=1}^N (y_i)^2}{N} - (\mu_y)^2
+\]</div>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>2 + data</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>2+12</p></td>
+</tr>
+<tr class="row-odd"><td><p>2+15</p></td>
+</tr>
+<tr class="row-even"><td><p>2+16</p></td>
+</tr>
+<tr class="row-odd"><td><p>2+18</p></td>
+</tr>
+<tr class="row-even"><td><p>2+20</p></td>
+</tr>
+<tr class="row-odd"><td><p>2+21</p></td>
+</tr>
+<tr class="row-even"><td><p>2+22</p></td>
+</tr>
+<tr class="row-odd"><td><p>2+23</p></td>
+</tr>
+<tr class="row-even"><td><p>2+24</p></td>
+</tr>
+<tr class="row-odd"><td><p>2+25</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pandas_datareader.data</span> <span class="k">as</span> <span class="nn">web</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">mplfinance</span> <span class="k">as</span> <span class="nn">mpf</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fred">
+<h3>FRED<a class="headerlink" href="#fred" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">end</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">27</span><span class="p">)</span>
+
+<span class="n">gdp</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s1">&#39;GDP&#39;</span><span class="p">,</span> <span class="s1">&#39;fred&#39;</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+
+<span class="n">gdp</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>GDP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>53.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>19444.975698</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>3255.623892</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>14764.610000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>16728.687000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>18892.639000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>21647.640000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>26813.601000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inflation</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">DataReader</span><span class="p">([</span><span class="s1">&#39;CPIAUCSL&#39;</span><span class="p">,</span> <span class="s1">&#39;CPILFESL&#39;</span><span class="p">],</span> <span class="s1">&#39;fred&#39;</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+<span class="n">inflation</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+DatetimeIndex: 157 entries, 2010-01-01 to 2023-01-01
+Data columns (total 2 columns):
+ #   Column    Non-Null Count  Dtype  
+---  ------    --------------  -----  
+ 0   CPIAUCSL  157 non-null    float64
+ 1   CPILFESL  157 non-null    float64
+dtypes: float64(2)
+memory usage: 3.7 KB
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="world-bank">
+<h3>World Bank<a class="headerlink" href="#world-bank" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pandas_datareader</span> <span class="kn">import</span> <span class="n">wb</span>
+<span class="n">gdp_variables</span> <span class="o">=</span> <span class="n">wb</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;gdp.*capita.*const&#39;</span><span class="p">)</span>
+<span class="n">gdp_variables</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>name</th>
+      <th>unit</th>
+      <th>source</th>
+      <th>sourceNote</th>
+      <th>sourceOrganization</th>
+      <th>topics</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>691</th>
+      <td>6.0.GDPpc_constant</td>
+      <td>GDP per capita, PPP (constant 2011 internation...</td>
+      <td></td>
+      <td>LAC Equity Lab</td>
+      <td>GDP per capita based on purchasing power parit...</td>
+      <td>b'World Development Indicators (World Bank)'</td>
+      <td>Economy &amp; Growth</td>
+    </tr>
+    <tr>
+      <th>10978</th>
+      <td>NY.GDP.PCAP.KD</td>
+      <td>GDP per capita (constant 2015 US$)</td>
+      <td></td>
+      <td>World Development Indicators</td>
+      <td>GDP per capita is gross domestic product divid...</td>
+      <td>b'World Bank national accounts data, and OECD ...</td>
+      <td>Economy &amp; Growth</td>
+    </tr>
+    <tr>
+      <th>10980</th>
+      <td>NY.GDP.PCAP.KN</td>
+      <td>GDP per capita (constant LCU)</td>
+      <td></td>
+      <td>World Development Indicators</td>
+      <td>GDP per capita is gross domestic product divid...</td>
+      <td>b'World Bank national accounts data, and OECD ...</td>
+      <td>Economy &amp; Growth</td>
+    </tr>
+    <tr>
+      <th>10982</th>
+      <td>NY.GDP.PCAP.PP.KD</td>
+      <td>GDP per capita, PPP (constant 2017 internation...</td>
+      <td></td>
+      <td>World Development Indicators</td>
+      <td>GDP per capita based on purchasing power parit...</td>
+      <td>b'International Comparison Program, World Bank...</td>
+      <td>Economy &amp; Growth</td>
+    </tr>
+    <tr>
+      <th>10983</th>
+      <td>NY.GDP.PCAP.PP.KD.87</td>
+      <td>GDP per capita, PPP (constant 1987 internation...</td>
+      <td></td>
+      <td>WDI Database Archives</td>
+      <td></td>
+      <td>b''</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wb_data</span> <span class="o">=</span> <span class="n">wb</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">indicator</span><span class="o">=</span><span class="s1">&#39;NY.GDP.PCAP.KD&#39;</span><span class="p">,</span> 
+                      <span class="n">country</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;US&#39;</span><span class="p">,</span> <span class="s1">&#39;CA&#39;</span><span class="p">,</span> <span class="s1">&#39;MX&#39;</span><span class="p">],</span> 
+                      <span class="n">start</span><span class="o">=</span><span class="mi">1990</span><span class="p">,</span> 
+                      <span class="n">end</span><span class="o">=</span><span class="mi">2019</span><span class="p">)</span>
+<span class="n">wb_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>NY.GDP.PCAP.KD</th>
+    </tr>
+    <tr>
+      <th>country</th>
+      <th>year</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">Canada</th>
+      <th>2019</th>
+      <td>45113.066282</td>
+    </tr>
+    <tr>
+      <th>2018</th>
+      <td>44917.483728</td>
+    </tr>
+    <tr>
+      <th>2017</th>
+      <td>44325.488337</td>
+    </tr>
+    <tr>
+      <th>2016</th>
+      <td>43536.913403</td>
+    </tr>
+    <tr>
+      <th>2015</th>
+      <td>43596.135537</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="oecd">
+<h3>OECD<a class="headerlink" href="#oecd" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">DataReader</span><span class="p">(</span><span class="s1">&#39;TUD&#39;</span><span class="p">,</span> <span class="s1">&#39;oecd&#39;</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="s1">&#39;2010&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;2019&#39;</span><span class="p">)</span>
+<span class="c1"># df[[&#39;Japan&#39;, &#39;United States&#39;]]</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th>Country</th>
+      <th>Australia</th>
+      <th>Austria</th>
+      <th>Belgium</th>
+      <th>Canada</th>
+      <th>Czech Republic</th>
+      <th>Denmark</th>
+      <th>Finland</th>
+      <th>France</th>
+      <th>Germany</th>
+      <th>Greece</th>
+      <th>...</th>
+      <th>United States</th>
+      <th>OECD - Total</th>
+      <th>Chile</th>
+      <th>Colombia</th>
+      <th>Costa Rica</th>
+      <th>Estonia</th>
+      <th>Israel</th>
+      <th>Latvia</th>
+      <th>Lithuania</th>
+      <th>Slovenia</th>
+    </tr>
+    <tr>
+      <th>Frequency</th>
+      <th>Annual</th>
+      <th>Annual</th>
+      <th>Annual</th>
+      <th>Annual</th>
+      <th>Annual</th>
+      <th>Annual</th>
+      <th>Annual</th>
+      <th>Annual</th>
+      <th>Annual</th>
+      <th>Annual</th>
+      <th>...</th>
+      <th>Annual</th>
+      <th>Annual</th>
+      <th>Annual</th>
+      <th>Annual</th>
+      <th>Annual</th>
+      <th>Annual</th>
+      <th>Annual</th>
+      <th>Annual</th>
+      <th>Annual</th>
+      <th>Annual</th>
+    </tr>
+    <tr>
+      <th>Measure</th>
+      <th>Percentage of employees</th>
+      <th>Percentage of employees</th>
+      <th>Percentage of employees</th>
+      <th>Percentage of employees</th>
+      <th>Percentage of employees</th>
+      <th>Percentage of employees</th>
+      <th>Percentage of employees</th>
+      <th>Percentage of employees</th>
+      <th>Percentage of employees</th>
+      <th>Percentage of employees</th>
+      <th>...</th>
+      <th>Percentage of employees</th>
+      <th>Percentage of employees</th>
+      <th>Percentage of employees</th>
+      <th>Percentage of employees</th>
+      <th>Percentage of employees</th>
+      <th>Percentage of employees</th>
+      <th>Percentage of employees</th>
+      <th>Percentage of employees</th>
+      <th>Percentage of employees</th>
+      <th>Percentage of employees</th>
+    </tr>
+    <tr>
+      <th>Time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2010-01-01</th>
+      <td>18.400000</td>
+      <td>28.900000</td>
+      <td>53.000000</td>
+      <td>27.200001</td>
+      <td>16.1</td>
+      <td>68.099998</td>
+      <td>71.400002</td>
+      <td>10.8</td>
+      <td>18.900000</td>
+      <td>22.200001</td>
+      <td>...</td>
+      <td>11.4</td>
+      <td>17.799999</td>
+      <td>13.9</td>
+      <td>9.2</td>
+      <td>12.900000</td>
+      <td>8.2</td>
+      <td>NaN</td>
+      <td>15.1</td>
+      <td>10.1</td>
+      <td>32.599998</td>
+    </tr>
+    <tr>
+      <th>2011-01-01</th>
+      <td>18.400000</td>
+      <td>28.299999</td>
+      <td>54.200001</td>
+      <td>26.900000</td>
+      <td>15.4</td>
+      <td>68.699997</td>
+      <td>69.599998</td>
+      <td>NaN</td>
+      <td>18.400000</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>11.3</td>
+      <td>17.700001</td>
+      <td>13.8</td>
+      <td>9.1</td>
+      <td>13.400000</td>
+      <td>7.0</td>
+      <td>NaN</td>
+      <td>13.7</td>
+      <td>9.7</td>
+      <td>36.700001</td>
+    </tr>
+    <tr>
+      <th>2012-01-01</th>
+      <td>18.200001</td>
+      <td>28.000000</td>
+      <td>54.099998</td>
+      <td>27.200001</td>
+      <td>14.8</td>
+      <td>69.000000</td>
+      <td>69.199997</td>
+      <td>NaN</td>
+      <td>18.299999</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>10.8</td>
+      <td>17.299999</td>
+      <td>14.4</td>
+      <td>9.1</td>
+      <td>13.100000</td>
+      <td>6.0</td>
+      <td>22.799999</td>
+      <td>13.2</td>
+      <td>9.0</td>
+      <td>26.799999</td>
+    </tr>
+    <tr>
+      <th>2013-01-01</th>
+      <td>17.000000</td>
+      <td>27.799999</td>
+      <td>53.299999</td>
+      <td>27.100000</td>
+      <td>13.6</td>
+      <td>68.800003</td>
+      <td>67.500000</td>
+      <td>11.0</td>
+      <td>18.000000</td>
+      <td>23.100000</td>
+      <td>...</td>
+      <td>10.8</td>
+      <td>17.100000</td>
+      <td>14.1</td>
+      <td>9.7</td>
+      <td>13.700000</td>
+      <td>5.6</td>
+      <td>NaN</td>
+      <td>12.9</td>
+      <td>8.4</td>
+      <td>26.200001</td>
+    </tr>
+    <tr>
+      <th>2014-01-01</th>
+      <td>15.100000</td>
+      <td>27.700001</td>
+      <td>52.900002</td>
+      <td>26.400000</td>
+      <td>12.9</td>
+      <td>68.500000</td>
+      <td>67.800003</td>
+      <td>NaN</td>
+      <td>17.700001</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>10.7</td>
+      <td>16.799999</td>
+      <td>14.6</td>
+      <td>9.6</td>
+      <td>12.400000</td>
+      <td>5.3</td>
+      <td>NaN</td>
+      <td>12.8</td>
+      <td>8.1</td>
+      <td>29.400000</td>
+    </tr>
+    <tr>
+      <th>2015-01-01</th>
+      <td>14.600000</td>
+      <td>26.900000</td>
+      <td>51.599998</td>
+      <td>26.299999</td>
+      <td>11.9</td>
+      <td>67.400002</td>
+      <td>65.699997</td>
+      <td>10.8</td>
+      <td>17.000000</td>
+      <td>19.000000</td>
+      <td>...</td>
+      <td>10.3</td>
+      <td>16.200001</td>
+      <td>16.9</td>
+      <td>9.5</td>
+      <td>19.299999</td>
+      <td>5.0</td>
+      <td>NaN</td>
+      <td>12.4</td>
+      <td>7.7</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2016-01-01</th>
+      <td>13.700000</td>
+      <td>26.299999</td>
+      <td>50.000000</td>
+      <td>25.900000</td>
+      <td>11.4</td>
+      <td>67.500000</td>
+      <td>60.000000</td>
+      <td>NaN</td>
+      <td>16.600000</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>10.1</td>
+      <td>15.900000</td>
+      <td>16.6</td>
+      <td>NaN</td>
+      <td>19.400000</td>
+      <td>5.9</td>
+      <td>NaN</td>
+      <td>11.6</td>
+      <td>7.1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2017-01-01</th>
+      <td>NaN</td>
+      <td>27.400000</td>
+      <td>52.299999</td>
+      <td>26.500000</td>
+      <td>11.9</td>
+      <td>68.199997</td>
+      <td>67.500000</td>
+      <td>NaN</td>
+      <td>17.600000</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>10.6</td>
+      <td>16.500000</td>
+      <td>15.3</td>
+      <td>9.4</td>
+      <td>18.600000</td>
+      <td>4.5</td>
+      <td>NaN</td>
+      <td>12.7</td>
+      <td>7.9</td>
+      <td>23.799999</td>
+    </tr>
+    <tr>
+      <th>2018-01-01</th>
+      <td>NaN</td>
+      <td>26.700001</td>
+      <td>50.700001</td>
+      <td>26.299999</td>
+      <td>11.7</td>
+      <td>66.699997</td>
+      <td>62.900002</td>
+      <td>NaN</td>
+      <td>16.700001</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>10.3</td>
+      <td>16.000000</td>
+      <td>17.0</td>
+      <td>9.5</td>
+      <td>19.299999</td>
+      <td>4.7</td>
+      <td>25.000000</td>
+      <td>12.3</td>
+      <td>7.7</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2019-01-01</th>
+      <td>NaN</td>
+      <td>26.299999</td>
+      <td>49.099998</td>
+      <td>26.100000</td>
+      <td>NaN</td>
+      <td>67.000000</td>
+      <td>58.799999</td>
+      <td>NaN</td>
+      <td>16.299999</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>9.9</td>
+      <td>15.800000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>20.500000</td>
+      <td>6.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>7.4</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>10 rows × 39 columns</p>
+</div></div></div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ASE_couserwork_week1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Week1: Using numbers</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ASE_couserwork_week3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 3: Index Numbers</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-descriptive-statistics">Introduction to descriptive statistics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-central-tendency">Measures of central tendency:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-variability-or-dispersion">Measures of variability or dispersion:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#measures-of-dispersion-or-variability">Measures of dispersion or variability</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variance">Variance</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#standard-deviation">Standard deviation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#skewness">Skewness</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-rule-of-thumb-for-skewness-values-are">The rule of thumb for skewness values are:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#kurtosis">Kurtosis</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#mesokurtic-curve">Mesokurtic curve:</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#platykurtic-curve">Platykurtic curve:</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#leptokurtic-curve">Leptokurtic curve:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-python-libraries">Import python libraries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Variance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fred">FRED</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#world-bank">World Bank</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oecd">OECD</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Roland Amagbo
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,843 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Week 6: Continuous Random Variables &#8212; Applied Statistics and Econometrics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/ASE_couserwork_week6';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Week 7: Estimation" href="ASE_couserwork_week7.html" />
+    <link rel="prev" title="Week 5: Discrete Random Variables" href="ASE_couserwork_week5.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/birkbeck_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/birkbeck_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ASE_couserwork_week1.html">Week1: Using numbers</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="ASE_couserwork_week2.html">Week 2: Descriptive statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ASE_couserwork_week3.html">Week 3: Index Numbers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ASE_couserwork_week4.html">Week 4: Probability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ASE_couserwork_week5.html">Week 5: Discrete Random Variables</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Week 6: Continuous Random Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ASE_couserwork_week7.html">Week 7: Estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ASE_couserwork_week8.html">Week 8: Confidence intervals and hypothesis testing</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/docs/ASE_couserwork_week6.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Week 6: Continuous Random Variables</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-distribution">Normal Distribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reminder">Reminder</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="week-6-continuous-random-variables">
+<h1>Week 6: Continuous Random Variables<a class="headerlink" href="#week-6-continuous-random-variables" title="Permalink to this heading">#</a></h1>
+<section id="normal-distribution">
+<h2>Normal Distribution<a class="headerlink" href="#normal-distribution" title="Permalink to this heading">#</a></h2>
+<p>This week you’ll be introduced to the concept of continuous random variable and study the properties of the Normal Distribution.</p>
+<p>The normal distribution is often referred to as <span class="math notranslate nohighlight">\(X \sim \mathcal{N}(\mu,\,\sigma^{2})\)</span>.</p>
+<p>Thus when a random variable <span class="math notranslate nohighlight">\(X\)</span> is distributed normally with mean <span class="math notranslate nohighlight">\((\mu)\)</span> and variance <span class="math notranslate nohighlight">\((\sigma^2)\)</span>, one may write</p>
+<div class="math notranslate nohighlight">
+\[
+   X \sim \mathcal{N}(\mu,\,\sigma^{2})\,.
+\]</div>
+<section id="reminder">
+<h3>Reminder<a class="headerlink" href="#reminder" title="Permalink to this heading">#</a></h3>
+<p>Shifting and scaling a distribution: see notes from week 2</p>
+<div class="math notranslate nohighlight">
+\[
+   w_i = a + b x_i
+\]</div>
+<p><em>Z-score</em></p>
+<p>: A z-score (or standard score) represents the number of standard deviations a given value <span class="math notranslate nohighlight">\(x\)</span> falls from the mean, <span class="math notranslate nohighlight">\(\mu\)</span></p>
+<p><em>Understanding Z-scores:</em></p>
+<p>: Here’s a good website, <a class="reference external" href="https://mathbitsnotebook.com/Algebra2/Statistics/STzScores.html">Z-score summary</a></p>
+<p><em>Calculating Z-scores:</em></p>
+<div class="math notranslate nohighlight">
+\[
+   z = \frac{x - \mu}{\sigma}
+\]</div>
+<p><em>Normal distribution:</em>
+:  Where you can get values for the normal distribution</p>
+<ul class="simple">
+<li><p>Here’s a good website: <a class="reference external" href="https://www.mathsisfun.com/data/standard-normal-distribution-table.html">normal distribution</a></p></li>
+<li><p>Statistical tables</p></li>
+<li><p>Spreadsheets</p></li>
+</ul>
+<p><img alt="area" src="../_images/area.png" /></p>
+<p><strong>Q15.</strong></p>
+<p><strong>For this and subsequent questions you need to use values for the cumula­tive normal distribution which you can get from statistical tables ( e.g. the ones in Barrow) or from the web or a spreadsheet.</strong></p>
+<p><strong>Marks on an exam <span class="math notranslate nohighlight">\(x_i\)</span> are distributed <span class="math notranslate nohighlight">\(\mathcal{N}(60, 10^2 )\)</span>.</strong></p>
+<aside class="topic">
+<p class="topic-title">(a) Explain in words what is meant by <span class="math notranslate nohighlight">\(\mathcal{N}(60, 10^2 )\)</span>, For a random variable <span class="math notranslate nohighlight">\(Z\)</span>. explain what is meant by <span class="math notranslate nohighlight">\(P(Z &lt; z)\)</span>. </p>
+<p>From the definition above, we have it that exam marks are normally distributed with:</p>
+<ul class="simple">
+<li><p>mean <span class="math notranslate nohighlight">\((\mu)\)</span> = 60</p></li>
+<li><p>variance <span class="math notranslate nohighlight">\((\sigma^2)\)</span> = <span class="math notranslate nohighlight">\(10^2\)</span></p>
+<ul>
+<li><p>Note: this translate to having a standard deviation std_dev <span class="math notranslate nohighlight">\((\sigma)\)</span> = 10</p></li>
+</ul>
+</li>
+</ul>
+</aside>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+
+<span class="c1"># Generate random data from a normal distribution</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">std_dev</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+</div>
+<aside class="topic">
+<p class="topic-title">(b)  What proportion of the students get</p>
+<p>(i)	less than 40;</p>
+<ul class="simple">
+<li><p>Method 1:</p>
+<ul>
+<li><p>Calculate z-score
+<span class="math notranslate nohighlight">\(Z_{40}\)</span> = <span class="math notranslate nohighlight">\(\frac{40-60}{10} = -2;\)</span>
+<span class="math notranslate nohighlight">\(P(X&lt;40) = P(Z&lt;-2) = 0.0228\)</span></p></li>
+</ul>
+</li>
+<li><p>Method 2:</p>
+<ul>
+<li><p>Reading values off the table above once the z-score is calculated:
+<span class="math notranslate nohighlight">\(P(Z&lt;-2) \approx 2.3\%\)</span></p></li>
+</ul>
+</li>
+</ul>
+</aside>
+<p><img alt="less40" src="../_images/less40.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python implemtation</span>
+
+<span class="n">P_X_40</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">std_dev</span><span class="p">)</span>
+<span class="n">P_X_40</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0227501319481792
+</pre></div>
+</div>
+</div>
+</div>
+<aside class="topic">
+<p class="topic-title">(ii)	between 40 and 50;</p>
+<ul>
+<li><p>Method 1:</p>
+<ul class="simple">
+<li><p>Calculate z-score</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(Z_{50} = \frac{50-60}{10} = -1; \quad P(Z&lt;-1) = 0.1587,\)</span></p>
+<p><span class="math notranslate nohighlight">\(so \quad P(40&lt;X&lt;50) = P(-2&lt;Z&lt;-1) = 0.1587-0.0228 =0.1359\)</span></p>
+</li>
+<li><p>Method 2:</p>
+<ul class="simple">
+<li><p>Reading values off the table above once the z-score is calculated:</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(P(-2&lt;Z&lt;-1) \approx 13.6\%\)</span></p>
+</li>
+</ul>
+</aside>
+<p><img alt="4and5" src="../_images/4and5.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python implemtation</span>
+
+<span class="n">P_X_50_40</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">std_dev</span><span class="p">)</span> <span class="o">-</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">std_dev</span><span class="p">)</span>
+<span class="n">P_X_50_40</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.13590512198327787
+</pre></div>
+</div>
+</div>
+</div>
+<aside class="topic">
+<p class="topic-title">(iii)	between 50 and 60</p>
+<ul>
+<li><p>Method 1:</p>
+<ul class="simple">
+<li><p>Calculate z-score
+<span class="math notranslate nohighlight">\(Z_{60} = \frac{60-60}{10} = 0; \quad P(Z&lt;0) = 0.50,\)</span></p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(so \quad P(50&lt;X&lt;60) = P(-1&lt;Z&lt;0) = 0.5 - 0.1587=0.3413\)</span></p>
+</li>
+<li><p>Method 2:</p>
+<ul class="simple">
+<li><p>Reading values off the table above once the z-score is calculated:</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(P(-1&lt;Z&lt;0) \approx 34.1\%\)</span></p>
+</li>
+</ul>
+</aside>
+<p><img alt="5and6" src="../_images/5and6.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python implemtation</span>
+
+<span class="n">P_X_60_50</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">std_dev</span><span class="p">)</span> <span class="o">-</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">std_dev</span><span class="p">)</span>
+<span class="n">P_X_60_50</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3413447460685429
+</pre></div>
+</div>
+</div>
+</div>
+<aside class="topic">
+<p class="topic-title">(iv)	between 60 and 70</p>
+<ul>
+<li><p>Method 1:</p>
+<ul class="simple">
+<li><p>Calculate z-score
+<span class="math notranslate nohighlight">\(Z_{70} = \frac{70-60}{10} = 1; \quad P(Z&lt;1) = 0.8413,\)</span></p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(so \quad P(60&lt;X&lt;70) = P(0&lt;Z&lt;1) = 0.8413 - 0.5 = 0.3413\)</span></p>
+</li>
+<li><p>Method 2:</p>
+<ul class="simple">
+<li><p>Reading values off the table above once the z-score is calculated:</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(P(0&lt;z&lt;1) \approx 34.1\%\)</span></p>
+</li>
+</ul>
+</aside>
+<p><img alt="6and7" src="../_images/6and7.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python implemtation</span>
+
+<span class="n">P_X_70_60</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">std_dev</span><span class="p">)</span> <span class="o">-</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">std_dev</span><span class="p">)</span>
+<span class="n">P_X_70_60</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3413447460685429
+</pre></div>
+</div>
+</div>
+</div>
+<aside class="topic">
+<p class="topic-title">( v)	between 70 and 80</p>
+<ul>
+<li><p>Method 1:</p>
+<ul class="simple">
+<li><p>Calculate z-score
+<span class="math notranslate nohighlight">\(Z_{80} = \frac{80-60}{10} = 2; \quad P(Z&lt;2) = 0.9772,\)</span></p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(so \quad  P(70&lt;X&lt;80) = P(1&lt;Z&lt;2) = 0.9772 -  0.8413 = 0.1359\)</span></p>
+</li>
+<li><p>Method 2:</p>
+<ul>
+<li><p>Reading values off the table above once the z-score is calculated:</p>
+<p><span class="math notranslate nohighlight">\(P(1&lt;z&lt;2) \approx 13.6\%\)</span></p>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<p><img alt="7and8" src="../_images/7and8.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python implemtation</span>
+
+<span class="n">P_X_80_70</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">std_dev</span><span class="p">)</span> <span class="o">-</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">std_dev</span><span class="p">)</span>
+<span class="n">P_X_80_70</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.13590512198327787
+</pre></div>
+</div>
+</div>
+</div>
+<aside class="topic">
+<p class="topic-title">(vi)	80 and over.</p>
+<ul>
+<li><p>Method 1:</p>
+<ul class="simple">
+<li><p>Calculate z-score
+P(Z&gt;2) = 1 - P(Z&lt;2) = 1 - 0.9772 = 0.0228$</p></li>
+</ul>
+</li>
+<li><p>Method 2:</p>
+<ul>
+<li><p>Reading values off the table above once the z-score is calculated:</p>
+<p><span class="math notranslate nohighlight">\(P(Z&gt;2) \approx 2.3\%\)</span></p>
+</li>
+</ul>
+</li>
+</ul>
+</aside>
+<p><img alt="great80" src="../_images/great80.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python implemtation</span>
+
+<span class="n">P_X_80</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">std_dev</span><span class="p">)</span>
+<span class="n">P_X_80</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02275013194817921
+</pre></div>
+</div>
+</div>
+</div>
+<aside class="topic">
+<p class="topic-title">(c) What mark does a student need to get into the top 10%</p>
+<p>Here remember that <span class="math notranslate nohighlight">\(z = \frac{x - \mu}{\sigma}\)</span> so that <span class="math notranslate nohighlight">\(x = \mu + z \times \sigma\)</span></p>
+<p><span class="math notranslate nohighlight">\(P(Z&gt;z) = 0.1\)</span> for <span class="math notranslate nohighlight">\(z \approx 1.28\)</span> so that</p>
+<p><span class="math notranslate nohighlight">\(X = 60 + 1.28*10 \approx 72.8\)</span></p>
+</aside>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python implementation</span>
+
+<span class="n">X_10</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">std_dev</span><span class="p">)</span>
+<span class="n">X_10</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>72.815515655446
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+
+<span class="c1"># Generate random data from a normal distribution</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">std_dev</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std_dev</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
+
+<span class="c1"># Flatten the data to a 1D array</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+<span class="c1"># Create a histogram</span>
+<span class="c1"># plt.hist(data, bins=20, density=True, alpha=0.5, color=&#39;b&#39;, label=&#39;Histogram&#39;)</span>
+
+<span class="c1"># Fit a normal distribution to the data</span>
+<span class="n">mu</span><span class="p">,</span> <span class="n">std</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># Plot the PDF of the fitted normal distribution</span>
+<span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">std</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Fitted Normal&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot the area one standard deviation above the mean</span>
+<span class="n">x_std_above</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">std</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">x_std_above</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;&gt; 80&#39;</span><span class="p">)</span>
+
+<span class="c1"># plt.title(&quot;Histogram, Fitted Normal Distribution, and 1 Std Dev Above Mean&quot;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Value&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a400b4e6b72a74f77f61c890e790ec84c533e87efe77b1a7438a1d167dc5fd8f.png" src="../_images/a400b4e6b72a74f77f61c890e790ec84c533e87efe77b1a7438a1d167dc5fd8f.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+
+<span class="c1"># Generate random data from a normal distribution</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">std_dev</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std_dev</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
+
+<span class="c1"># Flatten the data to a 1D array</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+<span class="c1"># Create a histogram</span>
+<span class="c1"># plt.hist(data, bins=20, density=True, alpha=0.5, color=&#39;b&#39;, label=&#39;Histogram&#39;)</span>
+
+<span class="c1"># Fit a normal distribution to the data</span>
+<span class="n">mu</span><span class="p">,</span> <span class="n">std</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># Plot the PDF of the fitted normal distribution</span>
+<span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">std</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Fitted Normal&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot the area between 40 and 50</span>
+<span class="n">x_min</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">x_max</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="n">x_min</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="n">x_max</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Between 50 and 60&#39;</span><span class="p">)</span>
+
+<span class="c1"># plt.title(&quot;Histogram, Fitted Normal Distribution, and Area Between 40 and 50&quot;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Value&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2b5c2498dc2142716c48df6ce565e4c7b17f933340cfcffb090f1167587d62a9.png" src="../_images/2b5c2498dc2142716c48df6ce565e4c7b17f933340cfcffb090f1167587d62a9.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">std</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>73.258737716292
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ASE_couserwork_week5.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Week 5: Discrete Random Variables</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ASE_couserwork_week7.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Week 7: Estimation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-distribution">Normal Distribution</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reminder">Reminder</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Roland Amagbo
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
